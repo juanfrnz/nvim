@@ -16,6 +16,9 @@
 -- C-o -> go back
 -- C-i -> go forward
 
+
+require('keymaps');
+
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
@@ -23,20 +26,6 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set clipboard=unnamedplus")
 vim.opt.number = true
 
-vim.api.nvim_set_keymap('i', '<C-a>', '<C-o>^', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<C-e>', '<C-o>$', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<C-k>', '<C-o>D', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-a>', '^', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-e>', '$', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<C-a>', '^', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<C-e>', '$', { noremap = true, silent = true })
-vim.keymap.set('n', 'grn', vim.lsp.buf.rename)
-vim.keymap.set('n', 'gra', vim.lsp.buf.code_action)
-vim.keymap.set('n', 'grr', vim.lsp.buf.references)
-vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
-vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
-vim.keymap.set("n", "gt", function() vim.lsp.buf.type_definition() end, opts)
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
