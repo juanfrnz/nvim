@@ -21,6 +21,7 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set clipboard=unnamedplus")
+-- vim.cmd("set backupcopy=yes")
 vim.opt.number = true
 
 vim.api.nvim_set_keymap('i', '<C-a>', '<C-o>^', { noremap = true, silent = true })
@@ -226,9 +227,9 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 require'lspconfig'.ts_ls.setup{
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "javascript.mjs" },
   root_dir = require'lspconfig'.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
-commands = {
+  commands = {
     OrganizeImports = {
       organize_imports,
       description = "Organize Imports"
